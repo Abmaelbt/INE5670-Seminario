@@ -4,9 +4,36 @@
     <title>Detalhes do Item</title>
 </head>
 <body>
-    <h1>{{ item.nome }}</h1>
-    <p>{{ item.descricao }}</p>
-    <a href="{% url 'item_update' item.pk %}">Editar</a>
-    <a href="{% url 'item_list' %}">Voltar</a>
+    <div class="container-fluid" style="background-color: aquamarine !important;">
+        <h1>{{ item.nome }}</h1>
+    </div>
+    <div class="container-fluid" style="background-color: rgb(102, 150, 198)">
+        
+        <table style="border: 1px solid #dddddd;"> 
+            <tr style="border: 1px solid #dddddd">
+                <th style="padding: 8px; border: 1px solid #dddddd;">Descrição</th>
+                <th style="padding: 8px; border: 1px solid #dddddd;">Tipo</th>
+            </tr>
+          
+            <tr>
+                <td style="padding: 8px; border: 1px solid #dddddd;">{{ item.descricao }}</td>
+                <td style="padding: 8px; border: 1px solid #dddddd;">{{ item.tipo }}</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div style="padding: 10px;">
+        <table style="border-collapse: collapse;">
+            <tr>
+                <td style="padding: 8px; border: 1px solid #dddddd;"><a href="{% url 'item_update' item.pk %}">Editar</a></td>
+            </tr>
+            <tr style="background-color: #f2f2f2;">
+                <td style="padding: 8px; border: 1px solid #dddddd;"><a href="{% url 'item_delete' item.pk %}">Deletar</a></td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #dddddd;"><a href="{% url 'item_list' %}">Voltar</a></td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>
